@@ -3,7 +3,17 @@
 import { Import } from "lucide-react";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/image";import { cartGroups } from "@/components/shared/cartdata";
+import {
+  FaShoppingBag,
+  FaChevronRight,
+  FaMinus,
+  FaPlus,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+} from "react-icons/fa";
 
 function RestaurantCard() {
   return (
@@ -129,102 +139,119 @@ export default function Home() {
       </div>
     </div>
   );
-}
-
-function Footer() {
-  const exploreLinks = [
-    { name: "All Food", href: "#" },
-    { name: "Nearby", href: "#" },
-    { name: "Discount", href: "#" },
-    { name: "Best Seller", href: "#" },
-    { name: "Delivery", href: "#" },
-    { name: "Lunch", href: "#" },
-  ];
-
-  const helpLinks = [
-    { name: "How to Order", href: "#" },
-    { name: "Payment Method", href: "#" },
-    { name: "Track My Order", href: "#" },
-    { name: "FAQ", href: "#" },
-    { name: "Contact Us", href: "#" },
-  ];
-
-  return (
-    <footer className="w-full bg-[#12161A] text-white py-12 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        {/* Kolom 1: Branding & Deskripsi */}
-        <div className="flex flex-col space-y-6">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            {/* Representasi Logo Merah seperti Matahari/Bunga */}
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="absolute w-full h-full rounded-full border-4 border-dashed border-[#E53E3E] animate-spin-slow"></div>
-              <div className="w-3 h-3 bg-[#E53E3E] rounded-full"></div>
-            </div>
-            <span className="text-2xl font-bold tracking-wide">Foody</span>
+  
+  <footer className="bg-[#1A1A1A] text-gray-400 text-xs px-6 md:px-20 py-12 mt-16">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      {/* Kolom 1: Info Brand */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 text-white">
+          <div className="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center">
+            <span className="text-white text-[8px]">☀️</span>
           </div>
-
-          {/* Deskripsi */}
-          <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-            Enjoy homemade flavors & chefs signature dishes, freshly prepared
-            every day. Order online or visit our nearest branch.
+          <span className="text-lg font-bold tracking-wide">Foody</span>
+        </div>
+        <p className="leading-relaxed text-gray-400 pr-4">
+          Enjoy homemade flavors & chef's signature dishes, freshly prepared
+          every day. Order online or visit our nearest branch.
+        </p>
+        <div className="pt-2">
+          <p className="font-semibold text-white mb-3">
+            Follow on Social Media
           </p>
-
-          {/* Sosial Media */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-gray-300">
-              Follow on Social Media
-            </h4>
-            <div className="flex space-x-3">
-              {["f", "📸", "in", ""].map((icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1A2026] hover:bg-gray-700 transition-colors text-xs font-bold text-gray-400 hover:text-white"
-                >
-                  {icon}
-                </a>
-              ))}
-            </div>
+          <div className="flex gap-4 text-sm text-gray-400">
+            <a href="#" className="hover:text-white">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="hover:text-white">
+              <FaInstagram />
+            </a>
+            <a href="#" className="hover:text-white">
+              <FaLinkedinIn />
+            </a>
+            <a href="#" className="hover:text-white">
+              <FaTiktok />
+            </a>
           </div>
-        </div>
-
-        {/* Kolom 2: Explore Links */}
-        <div className="flex flex-col space-y-4 md:pl-12">
-          <h3 className="text-base font-bold text-white tracking-wide">
-            Explore
-          </h3>
-          <ul className="space-y-3">
-            {exploreLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Kolom 3: Help Links */}
-        <div className="flex flex-col space-y-4">
-          <h3 className="text-base font-bold text-white tracking-wide">Help</h3>
-          <ul className="space-y-3">
-            {helpLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
-    </footer>
-  );
+
+      {/* Kolom 2: Explore */}
+      <div>
+        <h4 className="text-white font-semibold mb-4 text-sm tracking-wider uppercase">
+          Explore
+        </h4>
+        <ul className="space-y-2.5">
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              All Food
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Nearby
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Discount
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Best Seller
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Delivery
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Lunch
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Kolom 3: Help */}
+      <div>
+        <h4 className="text-white font-semibold mb-4 text-sm tracking-wider uppercase">
+          Help
+        </h4>
+        <ul className="space-y-2.5">
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              How to Order
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Payment Methods
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Track My Order
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a href="#" className="hover:text-white transition-colors">
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Kolom 4: Spacer/Aksesoris Tambahan (Opsional) */}
+      <div className="hidden md:block"></div>
+    </div>
+  </footer>;
 }
+
+ 
